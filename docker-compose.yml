@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+    handler:
+      image: evilbeaver/oscript-web:0.7.0
+      networks:
+        - internal      
+      ports:
+        - "5000:5000"
+      restart: "always"
+      depends_on:
+        - psql      
+      volumes: 
+        - HandlerSRC:/app
+    
+    psql:
+      image: postgres:latest
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+      networks:
+        - internal
+      volumes:
+        - PGData:/var/lib/postgresql/data
+   
+networks:
+  internal:
+    driver: bridge
+
+volumes:
+  PGData:
+  HandlerSRC:
