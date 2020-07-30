@@ -1,4 +1,4 @@
-Описание.Имя("ErorrHandlerService")
+Описание.Имя("ErrorHandlerService")
 	.Версия("0.1.0")
 	.ЗависитОт("entity")
 	.ЗависитОт("tempfiles")
